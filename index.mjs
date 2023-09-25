@@ -16,12 +16,14 @@ const execute = async()=>{
         const cauldron = new Cauldron(ingredients);
 
         //Creación de una Bag de pociones
-        const bag =  PotionBag.createPotions(rustedRingData.players[0].pouch_green, cauldron);
+        const bag =  PotionBag.createPotions(rustedRingData.players[0].pouch_aged, cauldron);
         showPotions(bag)
 
         const joseph = Character.from(rustedRingData.players[0], bag);
         
         showCharacter(joseph)
+
+        joseph.drinkEmAll();
 
     }catch(error){
         console.log(error);
