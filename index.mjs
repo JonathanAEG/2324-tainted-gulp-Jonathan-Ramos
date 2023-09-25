@@ -16,7 +16,7 @@ const execute = async()=>{
 
         //Creación de una Bag de pociones
         const Bag =  PotionBag.createPotions(rustedRingData.players[0].pouch_green, cauldron);
-
+        showPotions(Bag)
 
     }catch(error){
         console.log(error);
@@ -25,17 +25,20 @@ const execute = async()=>{
 
 execute();
 
+function showPotions({potions}){
 
-function showPotion(potion){
+    potions.forEach(potion=>{
 
-    for(let atribute in potion){
+        for(let atribute in potion){
 
-        if(atribute != `name`){
-
-            console.log(`${atribute}:    ${potion[atribute]}`)
-        }else{
-            console.log(`${potion[atribute]}`)
+            if(atribute != `name`){
+    
+                console.log(`${atribute}:    ${potion[atribute]}`)
+            }else{
+                console.log(`${potion[atribute]}`)
+            }
         }
-    }
-    console.log(`-------------------------------`)
+        console.log(`-------------------------------`)
+    })
+    
 }
